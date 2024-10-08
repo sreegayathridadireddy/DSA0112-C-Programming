@@ -1,0 +1,58 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Employee {
+protected:
+    string emp_name;
+    int emp_id;
+    string address;
+    string mail_id;
+    string mobile_no;
+    float basic_pay;
+
+public:
+    void inputDetails() {
+        cout << "Enter Name of the Employee: ";
+        getline(cin, emp_name);
+        cout << "Enter Address of the Employee: ";
+        getline(cin, address);
+        cout << "Enter ID of the Employee: ";
+        cin >> emp_id;
+        cout << "Enter Mobile Number: ";
+        cin >> mobile_no;
+        cout << "Enter E-Mail ID of the Employee: ";
+        cin.ignore();
+        getline(cin, mail_id);
+    }
+
+    void inputBasicPay() {
+        cout << "ENTER THE BASIC PAY => ";
+        cin >> basic_pay;
+    }
+
+    void generatePaySlip(const string& title) {
+        float DA = 0.97 * basic_pay, HRA = 0.10 * basic_pay;
+        float PF = 0.12 * basic_pay, clubFund = 0.001 * basic_pay;
+        float grossPay = basic_pay + DA + HRA;
+        float netPay = grossPay - (PF + clubFund);
+
+        cout << "\n=======================\n" << title << " PAYMENT SLIP\n=======================\n";
+        cout << "BASIC PAY => " << basic_pay << "\nDEARNESS ALLOWANCE => " << DA
+             << "\nHOUSE RENT ALLOWANCE => " << HRA << "\nPROVIDENT FUND => " << PF
+             << "\nCLUB FUND => " << clubFund << "\nGROSS PAY => " << grossPay
+             << "\nNET PAY => " << netPay << endl;
+    }
+};
+class Programmer : public Employee {};
+class AssistantProfessor : public Employee {};
+class AssociateProfessor : public Employee {};
+class Professor : public Employee {};
+
+int main() {
+    Programmer programmer;
+    programmer.inputDetails();
+    programmer.inputBasicPay();
+    programmer.generatePaySlip("PROGRAMMER");
+
+    return 0;
+}
