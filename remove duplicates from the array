@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+#include <algorithm> 
+using namespace std;
+
+void removeDuplicates(vector<int>& arr) {
+    sort(arr.begin(), arr.end());
+    vector<int> uniqueArr;
+
+    for (int i = 0; i < arr.size(); i++) {
+        if (i == 0 || arr[i] != arr[i - 1]) {
+            uniqueArr.push_back(arr[i]);
+        }
+    }
+    arr = uniqueArr;
+}
+
+int main() {
+    vector<int> arr = {15, 14, 25, 14, 32, 14, 31};
+
+    removeDuplicates(arr);
+
+    cout << "Sorted Array = {";
+    for (int i = 0; i < arr.size(); i++) {
+        cout << arr[i];
+        if (i < arr.size() - 1) cout << ", ";
+    }
+    cout << "}" << endl;
+
+    return 0;
+}
