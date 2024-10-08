@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+int sum(int a = 0, int b = 0, int c = 0, int d = 0) {
+    return a + b + c + d; 
+}
+int main() {
+    int value1, value2, value3, value4;
+    cout << "Enter the values (4 values, space-separated): ";
+    cin >> value1 >> value2 >> value3 >> value4;
+    int result = sum(value1, value2, value3, value4);
+    cout << "The sum is: " << result << endl;
+    return 0;
+}
