@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+class CubeCalculator {
+private:
+    int num;
+
+public:
+    CubeCalculator() {
+        num = 1;
+    }
+    CubeCalculator(int n) {
+        num = n;
+    }
+    void displayCubes() {
+        for (int i = 1; i <= num; i++) {
+            cout << "Cube of " << i << " is " << (i * i * i) << endl;
+        }
+    }
+};
+
+int main() {
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+    CubeCalculator obj(n);
+    cout << "Cubes using the parameterized constructor:" << endl;
+    obj.displayCubes();
+    CubeCalculator defaultObj;
+    cout << "\nCubes using the default constructor:" << endl;
+    defaultObj.displayCubes();
+
+    return 0;
+}
