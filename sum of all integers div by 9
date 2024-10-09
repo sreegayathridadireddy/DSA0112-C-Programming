@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+class DivisibleByNine {
+private:
+    int lowerBound; 
+    int upperBound; 
+
+public:
+    DivisibleByNine(int lower, int upper) {
+        lowerBound = lower;
+        upperBound = upper;
+    }
+    ~DivisibleByNine() {
+    }
+    void findAndSumDivisibleByNine() {
+        int sum = 0;
+        cout << "Numbers between " << lowerBound << " and " << upperBound << " divisible by 9 are:\n";
+        
+        for (int i = lowerBound; i <= upperBound; i++) {
+            if (i % 9 == 0) {
+                cout << i << " ";
+                sum += i;
+            }
+        }
+
+        cout << "\nSum of all numbers divisible by 9 in the range: " << sum << endl;
+    }
+};
+
+int main() {
+    const int LOWER_BOUND = 100;
+    const int UPPER_BOUND = 200;
+    DivisibleByNine divByNine(LOWER_BOUND, UPPER_BOUND);
+    divByNine.findAndSumDivisibleByNine();
+
+    return 0;
+}
