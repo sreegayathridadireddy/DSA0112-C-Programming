@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+class Complex {
+private:
+    int real, imag;
+
+public:
+    Complex(int r = 0, int i = 0) {
+        real = r;
+        imag = i;
+    }
+    Complex operator + (const Complex& obj) {
+        Complex temp;
+        temp.real = real + obj.real;
+        temp.imag = imag + obj.imag;
+        return temp;
+    }
+    Complex operator - (const Complex& obj) {
+        Complex temp;
+        temp.real = real - obj.real;
+        temp.imag = imag - obj.imag;
+        return temp;
+    }
+    void display() const {
+        if (imag >= 0)
+            cout << real << " + " << imag << "i" << endl;
+        else
+            cout << real << " - " << -imag << "i" << endl;
+    }
+    void input() {
+        cout << "Enter the real part: ";
+        cin >> real;
+        cout << "Enter the imaginary part: ";
+        cin >> imag;
+    }
+};
+
+int main() {
+    Complex num1, num2, resultAdd, resultSub;
+    cout << "Enter the value of Complex Number 1:\n";
+    num1.input();
+    
+    cout << "Enter the value of Complex Number 2:\n";
+    num2.input();
+    resultAdd = num1 + num2;
+    resultSub = num1 - num2;
+    cout << "\nInput Values:" << endl;
+    num1.display();
+    num2.display();
+    cout << "\nResult:" << endl;
+    cout << "Addition: ";
+    resultAdd.display();
+    cout << "Subtraction: ";
+    resultSub.display();
+
+    return 0;
+}
