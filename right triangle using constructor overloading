@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+class RightAngleTriangle {
+private:
+    int rows; 
+    int number; 
+
+public:
+    RightAngleTriangle() {
+        rows = 0;
+        number = 0;
+    }
+    RightAngleTriangle(int r, int n) {
+        rows = r;
+        number = n;
+    }
+    void printPattern() {
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= i; j++) {
+                cout << number << " "; 
+            }
+            cout << endl; 
+        }
+    }
+};
+
+int main() {
+    int r, n;
+    cout << "Enter the number of rows in the triangle: ";
+    cin >> r;
+    cout << "Enter the number to print: ";
+    cin >> n;
+    RightAngleTriangle triangle(r, n);
+    cout << "Right-angled triangle pattern:" << endl;
+    triangle.printPattern();
+    RightAngleTriangle defaultTriangle;
+    cout << "Right-angled triangle pattern with default constructor (0 rows):" << endl;
+    defaultTriangle.printPattern();
+
+    return 0;
+}
