@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+class SeriesSum {
+private:
+    int n;
+
+public:
+    SeriesSum() {
+        n = 0;
+    }
+    SeriesSum(int number) {
+        n = number;
+    }
+    int calculateSum() {
+        int sum = 0;
+        for (int i = 1; i <= n; i++) {
+            sum += i;
+        }
+        return sum;
+    }
+};
+
+int main() {
+    int num;
+    cout << "Enter the number of terms in the series: ";
+    cin >> num;
+    SeriesSum series(num);
+    cout << "The sum of the series up to " << num << " terms is: " << series.calculateSum() << endl;
+    SeriesSum defaultSeries; 
+    cout << "The sum of the series with default constructor (0 terms) is: " << defaultSeries.calculateSum() << endl;
+
+    return 0;
+}
