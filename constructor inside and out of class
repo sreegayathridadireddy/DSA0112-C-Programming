@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+class Shape {
+    double length, breadth;
+
+public:
+  
+    Shape(double l, double b);
+
+    void displayArea() {
+        cout << "Area of Rectangle: " << length * breadth << endl;
+    }
+};
+
+Shape::Shape(double l, double b) {
+    length = l;
+    breadth = b;
+}
+
+int main() {
+    Shape rectangle(4, 5);  
+    rectangle.displayArea();
+
+    return 0;
+}
