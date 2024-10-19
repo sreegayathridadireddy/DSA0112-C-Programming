@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+class Shape {
+public:
+    Shape(double side) {
+        cout << "Volume of Cube: " << side * side * side << endl;
+    }
+
+    Shape(double radius, double height) {
+        cout << "Volume of Cylinder: " << 3.14 * radius * radius * height << endl;
+    }
+};
+
+int main() {
+    Shape cube(3);             
+    Shape cylinder(2, 5);       
+
+    return 0;
+}
