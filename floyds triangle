@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+class FloydTriangle {
+    int n;  
+    int num; 
+
+public:
+
+    FloydTriangle(int rows) {
+        n = rows;
+        num = 1;  // Start counting from 1
+        cout << "Floyd's Triangle in triangle shape:\n";
+        for (int i = 1; i <= n; i++) {
+            
+            for (int j = i; j < n; j++) {
+                cout << " ";
+            }
+          
+            for (int j = 1; j <= i; j++) {
+                cout << num << " ";
+                num++;
+            }
+            cout << endl;
+        }
+    }
+
+
+    ~FloydTriangle() {
+        cout << "Floyd's Triangle printed successfully." << endl;
+    }
+};
+
+int main() {
+    int rows;
+    cout << "Enter the number of rows for Floyd's Triangle: ";
+    cin >> rows;
+
+    FloydTriangle triangle(rows);
+
+    return 0;
+}
