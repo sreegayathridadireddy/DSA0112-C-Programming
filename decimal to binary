@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+class DecimalToBinary {
+public:
+    DecimalToBinary(int decimal) {
+        cout << "Decimal: " << decimal << endl;
+        cout << "Binary: ";
+        convertToBinary(decimal);
+        cout << endl;
+    }
+
+    void convertToBinary(int num) {
+        if (num == 0) {
+            return;
+        }
+        convertToBinary(num / 2); 
+        cout << num % 2;  
+    }
+};
+
+int main() {
+    int decimal;
+    cout << "Enter a decimal number: ";
+    cin >> decimal;
+
+    DecimalToBinary convert(decimal);
+
+    return 0;
+}
