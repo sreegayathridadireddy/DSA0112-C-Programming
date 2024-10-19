@@ -1,0 +1,978 @@
+1.
+#include <iostream>
+using namespace std;
+int main() {
+    int num1, num2;
+    cout << "Enter two integers: ";
+    cin >> num1 >> num2;
+    cout << "Addition: " << num1 + num2 << endl;
+    cout << "Subtraction: " << num1 - num2 << endl;
+    cout << "Multiplication: " << num1 * num2 << endl;
+    if (num2 != 0) {
+        cout << "Division: " << num1 / num2 << endl;
+        cout << "Modulo: " << num1 % num2 << endl;
+    } else {
+        cout << "Division and Modulo by zero are not allowed." << endl;
+    }
+    return 0;
+}
+
+2.
+#include <iostream>
+using namespace std;
+int main() {
+    int number;
+    cout << "Enter an integer: ";
+    cin >> number;
+    if (number % 2 == 0) {
+        cout << number << " is even." << endl;
+    } else {
+        cout << number << " is odd." << endl;
+    }
+    return 0;
+}
+
+3.
+#include <iostream>
+using namespace std;
+int main() {
+    int num1, num2, num3;
+    float average;
+    cout << "Enter three integers: ";
+    cin >> num1 >> num2 >> num3;
+    average = (num1 + num2 + num3) / 3.0;
+    cout << "The average is: " << average << endl;
+    return 0;
+}
+
+4.
+#include <iostream>
+using namespace std;
+int main() {
+    int num1, num2;
+    cout << "Enter two integers: ";
+    cin >> num1 >> num2;
+    if (num1 == num2) {
+        cout << "The numbers are equal." << endl;
+    } else {
+        cout << "The numbers are not equal." << endl;
+    }
+    return 0;
+}
+
+5.
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main() {
+    float num1, num2;
+    cout << "Enter two floating-point numbers: ";
+    cin >> num1 >> num2;
+    cout << "Addition: " << num1 + num2 << endl;
+    cout << "Subtraction: " << num1 - num2 << endl;
+    cout << "Multiplication: " << num1 * num2 << endl;
+    if (num2 != 0) {
+        cout << "Division: " << num1 / num2 << endl;
+        cout << "Modulo (using fmod): " << fmod(num1, num2) << endl;
+    } else {
+        cout << "Division and Modulo by zero are not allowed." << endl;
+    }
+    return 0;
+}
+
+6.
+#include <iostream>
+using namespace std;
+int main() {
+    char ch;
+    cout << "Enter a character: ";
+    cin >> ch;
+    ch = tolower(ch);
+    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+        cout << ch << " is a vowel." << endl;
+    } else if ((ch >= 'a' && ch <= 'z')) {
+        cout << ch << " is a consonant." << endl;
+    } else {
+        cout << ch << " is not a valid alphabet letter." << endl;
+    }
+    return 0;
+}
+
+7.
+#include <iostream>
+using namespace std;
+int main() {
+    float number;
+    cout << "Enter a number: ";
+    cin >> number;
+    if (number > 0) {
+        cout << number << " is positive." << endl;
+    } else if (number < 0) {
+        cout << number << " is negative." << endl;
+    } else {
+        cout << "The number is zero." << endl;
+    }
+    return 0;
+}
+
+8.
+#include <iostream>
+using namespace std;
+int main() {
+    int num1, num2;
+    cout << "Enter two integers: ";
+    cin >> num1 >> num2;
+    if (num1 > num2) {
+        cout << num1 << " is greater than " << num2 << "." << endl;
+    } else if (num2 > num1) {
+        cout << num2 << " is greater than " << num1 << "." << endl;
+    } else {
+        cout << "Both numbers are equal." << endl;
+    }
+    return 0;
+}
+
+9.
+#include <iostream>
+#include <cmath> 
+using namespace std;
+int main() {
+    float number;
+    cout << "Enter a floating-point number: ";
+    cin >> number;
+    int floorValue = floor(number);
+    int ceilValue = ceil(number);
+    cout << "Floor value: " << floorValue << endl;
+    cout << "Ceil value: " << ceilValue << endl;
+    int roundedValue = round(number);
+    cout << "Rounded to nearest integer: " << roundedValue << endl;
+    return 0;
+}
+
+10.
+#include <iostream>
+using namespace std;
+int main() {
+    int num1, num2;
+    cout << "Enter two integers: ";
+    cin >> num1 >> num2;
+    cout << "Before swapping: " << endl;
+    cout << "num1 = " << num1 << ", num2 = " << num2 << endl;
+    num1 = num1 ^ num2;
+    num2 = num1 ^ num2;
+    num1 = num1 ^ num2;
+    cout << "After swapping: " << endl;
+    cout << "num1 = " << num1 << ", num2 = " << num2 << endl;
+    return 0;
+}
+
+11.
+#include <iostream>
+using namespace std;
+int main() {
+    int num1, num2, num3;
+    cout << "Enter three integers: ";
+    cin >> num1 >> num2 >> num3;
+    int largest = (num1 >= num2 && num1 >= num3) ? num1 :
+                  (num2 >= num1 && num2 >= num3) ? num2 : num3;
+    cout << "The largest number is: " << largest << endl;
+    return 0;
+}
+
+12.
+#include <iostream>
+using namespace std;
+int main() {
+    int num1, num2;
+    cout << "Enter two integers: ";
+    cin >> num1 >> num2;
+    string result = (num1 == num2) ? "The numbers are equal." : "The numbers are not equal.";
+    cout << result << endl;
+    return 0;
+}
+
+13.
+#include <iostream>
+using namespace std;
+int main() {
+    int number;
+    cout << "Enter an integer: ";
+    cin >> number;
+    string result = (number % 3 == 0) ? "The number is divisible by 3." : "The number is not divisible by 3.";
+    cout << result << endl;
+    return 0;
+}
+
+14.
+#include <iostream>
+using namespace std;
+int main() {
+    for (int i = 1; i <= 10; ++i) {
+        cout << i << endl;
+    }
+    return 0;
+}
+
+15.
+#include <iostream>
+using namespace std;
+int main() {
+    int number;
+    unsigned long long factorial = 1;
+    cout << "Enter a non-negative integer: ";
+    cin >> number;
+    if (number < 0) {
+        cout << "Factorial is not defined for negative numbers." << endl;
+    } else {
+        for (int i = 1; i <= number; ++i) {
+            factorial *= i;
+        }
+        cout << "Factorial of " << number << " = " << factorial << endl;
+    }
+    return 0;
+}
+
+16.
+#include <iostream>
+using namespace std;
+int main() {
+    int number;
+    cout << "Enter a number to print its multiplication table: ";
+    cin >> number;
+    cout << "Multiplication table of " << number << ":\n";
+    for (int i = 1; i <= 10; ++i) {
+        cout << number << " x " << i << " = " << number * i << endl;
+    }
+    return 0;
+}
+
+17.
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cout << "Enter the number of terms in the Fibonacci series: ";
+    cin >> n;
+    int a = 0, b = 1;
+    cout << "Fibonacci series: ";
+    for (int i = 1; i <= n; ++i) {
+        cout << a << " "; 
+        int nextTerm = a + b;
+        a = b;
+        b = nextTerm;
+    }
+    cout << endl;
+    return 0;
+}
+
+18.
+#include <iostream>
+using namespace std;
+int main() {
+    int number;
+    bool isPrime = true;
+    cout << "Enter a positive integer: ";
+    cin >> number;
+    if (number <= 1) {
+        isPrime = false;
+    } else {
+        for (int i = 2; i <= number / 2; ++i) {
+            if (number % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+    }
+    if (isPrime) {
+        cout << number << " is a prime number." << endl;
+    } else {
+        cout << number << " is not a prime number." << endl;
+    }
+    return 0;
+}
+
+19.
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+    string str;
+    cout << "Enter a string: ";
+    getline(cin, str);
+    int left = 0;
+    int right = str.length() - 1;
+    bool isPalindrome = true;
+    while (left < right) {
+        if (str[left] != str[right]) {
+            isPalindrome = false;
+            break;
+        }
+        left++;
+        right--;
+    }
+    if (isPalindrome) {
+        cout << "The string is a palindrome." << endl;
+    } else {
+        cout << "The string is not a palindrome." << endl;
+    }
+    return 0;
+}
+
+20.
+#include <iostream>
+using namespace std;
+int main() {
+    long long num;
+    int sum = 0;
+    cout << "Enter a number: ";
+    cin >> num;
+    while (num > 0) {
+        sum += num % 10;
+        num /= 10;
+    }
+    cout << "The sum of the digits is: " << sum << endl;
+    return 0;
+}
+
+21.
+#include <iostream>
+using namespace std;
+int main() {
+    int a, b;
+    cout << "Enter two positive integers: ";
+    cin >> a >> b;
+    if (a <= 0 || b <= 0) {
+        cout << "Please enter positive integers." << endl;
+        return 1;
+    }
+    int originalA = a;
+    int originalB = b;
+    do {
+        if (a > b) {
+            a -= b;
+        } else {
+            b -= a;
+        }
+    } while (a != b);
+    cout << "The GCD of " << originalA << " and " << originalB << " is: " << a << endl;
+    return 0;
+}
+
+22.
+#include <iostream>
+using namespace std;6
+int main() {
+    int num, sum = 0;
+    cout << "Enter a positive integer: ";
+    cin >> num;
+    if (num <= 0) {
+        cout << "Please enter a positive integer." << endl;
+        return 1;
+    }
+    for (int i = 1; i <= num / 2; i++) {
+        if (num % i == 0) {
+            sum += i;
+        }
+    }
+    if (sum == num) {
+        cout << num << " is a perfect number." << endl;
+    } else {
+        cout << num << " is not a perfect number." << endl;
+    }
+    return 0;
+}
+
+23.
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main() {
+    int num, originalNum, remainder, sum = 0;
+    cout << "Enter an integer: ";
+    cin >> num;
+    originalNum = num;
+    while (num > 0) {
+        remainder = num % 10;
+        sum += pow(remainder, 3);
+        num /= 10;
+    }
+    if (sum == originalNum) {
+        cout << originalNum << " is an Armstrong number." << endl;
+    } else {
+        cout << originalNum << " is not an Armstrong number." << endl;
+    }
+    return 0;
+}
+
+24.
+#include <iostream>
+using namespace std;
+int main() {
+    int num, sum = 0, originalNum;
+    cout << "Enter a positive integer: ";
+    cin >> num;
+    originalNum = num;
+    while (num > 0) {
+        sum += num % 10;
+        num /= 10;
+    }
+    if (originalNum % sum == 0) {
+        cout << originalNum << " is a Harshad number." << endl;
+    } else {
+        cout << originalNum << " is not a Harshad number." << endl;
+    }
+    return 0;
+}
+
+25.
+#include <iostream>
+#include <unordered_set>
+using namespace std;
+int sumOfSquares(int num) {
+    int sum = 0;
+    while (num > 0) {
+        int digit = num % 10;
+        sum += digit * digit;
+        num /= 10;
+    }
+    return sum;
+}
+int main() {
+    int num;
+    cout << "Enter a positive integer: ";
+    cin >> num;
+    unordered_set<int> seen;
+    while (num != 1 && seen.find(num) == seen.end()) {
+        seen.insert(num);
+        num = sumOfSquares(num);
+    }
+    if (num == 1) {
+        cout << "The number is a Happy number." << endl;
+    } else {
+        cout << "The number is not a Happy number." << endl;
+    }
+    return 0;
+}
+
+26.
+#include <iostream>
+using namespace std;
+int factorial(int n) {
+    int fact = 1;
+    for (int i = 1; i <= n; i++) {
+        fact *= i;
+    }
+    return fact;
+}
+int main() {
+    int number, originalNum, digit, sum = 0;
+    cout << "Enter a number: ";
+    cin >> number;
+    originalNum = number;
+    while (number > 0) {
+        digit = number % 10; 
+        sum += factorial(digit);
+        number /= 10;  
+    }
+    if (sum == originalNum) {
+        cout << originalNum << " is a strong number." << endl;
+    } else {
+        cout << originalNum << " is not a strong number." << endl;
+    }
+    return 0;
+}
+
+27.
+#include <iostream>
+using namespace std;
+int main() {
+    int number;
+    cout << "Enter a number: ";
+    cin >> number;
+    if (number % 7 == 0 || number % 10 == 7) {
+        cout << number << " is a Buzz number." << endl;
+    } else {
+        cout << number << " is not a Buzz number." << endl;
+    }
+    return 0;
+}
+
+28.
+#include <iostream>
+using namespace std;
+int main() {
+    int number, square, sumOfDigits = 0;
+    cout << "Enter a number: ";
+    cin >> number;
+    square = number * number;
+    while (square > 0) {
+        sumOfDigits += square % 10;
+        square /= 10;
+    }
+    if (sumOfDigits == number) {
+        cout << number << " is a Neon number." << endl;
+    } else {
+        cout << number << " is not a Neon number." << endl;
+    }
+    return 0;
+}
+
+29.
+#include <iostream>
+using namespace std;
+int main() {
+    int number, sum = 0;
+    cout << "Enter a number: ";
+    cin >> number;
+    for (int i = 1; i <= number / 2; i++) {
+        if (number % i == 0) {
+            sum += i;
+        }
+    }
+    if (sum > number) {
+        cout << number << " is an Abundant number." << endl;
+    } else {
+        cout << number << " is not an Abundant number." << endl;
+    }
+    return 0;
+}
+
+30.
+#include <iostream>
+#include <cmath> 
+using namespace std;
+int main() {
+    int number, originalNum, remainder, sum = 0, digits = 0;
+    cout << "Enter a number: ";
+    cin >> number;
+    originalNum = number;
+    while (originalNum != 0) {
+        originalNum /= 10;
+        digits++;
+    }
+    originalNum = number;
+    while (originalNum != 0) {
+        remainder = originalNum % 10;
+        sum += pow(remainder, digits);
+        originalNum /= 10;
+    }
+    if (sum == number) {
+        cout << number << " is a Narcissistic number." << endl;
+    } else {
+        cout << number << " is not a Narcissistic number." << endl;
+    }
+    return 0;
+}
+
+31.
+#include <iostream>
+using namespace std;
+int main() {
+    int rows = 5;
+    for (int i = 1; i <= rows; i++) {
+        for (int j = 1; j <= i; j++) {
+		cout << i;
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+32.
+#include <iostream>
+using namespace std;
+int main() {
+    int rows = 5;
+    for (int i = 1; i <= rows; i++) {
+        for (int j = 1; j <= i; j++) {
+            cout << "*";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+33.
+#include <iostream>
+using namespace std;
+int main() {
+    int rows;
+    cout << "Enter the number of rows: ";
+    cin >> rows;
+
+    for (int i = 0; i < rows; i++) {
+        int num = 1;
+        for (int j = 0; j < rows - i - 1; j++) {
+            std::cout << " ";
+        }
+        for (int j = 0; j <= i; j++) {
+            std::cout << num << " "; 
+            num = num * (i - j) / (j + 1);
+        }
+        cout <<endl; 
+    }
+    return 0;
+}
+
+34.
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cout << "Enter the number of rows for the diamond (half): ";
+    cin >> n;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n - i; j++) {
+            cout << " ";
+        }
+        for (int j = 1; j <= 2 * i - 1; j++) {
+           cout << "*";
+        }
+        cout << endl;
+    }
+    for (int i = n - 1; i >= 1; i--) {
+        for (int j = 1; j <= n - i; j++) {
+           cout << " ";
+        }
+        for (int j = 1; j <= 2 * i - 1; j++) {
+           cout << "*";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+35.
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cout << "Enter the number of elements in the array: ";
+    cin >> n;
+    int arr[n];
+    cout << "Enter " << n << " elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    for (int i = 0; i < n / 2; i++) {
+        int temp = arr[i];
+        arr[i] = arr[n - 1 - i];
+        arr[n - 1 - i] = temp;
+    }
+    cout << "Reversed array: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl; 
+    return 0;
+}
+
+36.
+#include <iostream>
+using namespace std;
+int main() {
+    int n, pos, element;
+    cout << "Enter the size of the array: ";
+    cin >> n;
+    int arr[n + 1];
+    cout << "Enter " << n << " elements:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    cout << "Enter the element to insert: ";
+    cin >> element;
+    cout << "Enter the position to insert (0 to " << n << "): ";
+    cin >> pos;
+    if (pos < 0 || pos > n) {
+        cout << "Invalid position!" << endl;
+        return 1;
+    }
+    for (int i = n; i > pos; i--) {
+        arr[i] = arr[i - 1];
+    }
+    arr[pos] = element;
+    cout << "Updated array:\n";
+    for (int i = 0; i <= n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    return 0;
+}
+
+37.
+#include <iostream>
+using namespace std;
+int main() {
+    int n, pos;
+    cout << "Enter the size of the array: ";
+    cin >> n;
+    int arr[n];
+    cout << "Enter " << n << " elements:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    cout << "Enter the position of the element to delete (0 to " << n - 1 << "): ";
+    cin >> pos;
+    if (pos < 0 || pos >= n) {
+        cout << "Invalid position!" << endl;
+        return 1;
+    }
+    for (int i = pos; i < n - 1; i++) {
+        arr[i] = arr[i + 1];
+    }
+    n--;
+    cout << "Updated array:\n";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    return 0;
+}
+
+38.
+#include <iostream>
+using namespace std;
+int main() {
+    int n, sum = 0;
+    cout << "Enter the size of the array: ";
+    cin >> n;
+    int arr[n];
+    cout << "Enter " << n << " elements:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    for (int i = 0; i < n; i++) {
+        sum += arr[i];
+    }
+    cout << "The sum of all elements in the array is: " << sum << endl;
+    return 0;
+}
+
+39.
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    float sum = 0.0, average;
+    cout << "Enter the size of the array: ";
+    cin >> n;
+    int arr[n];
+    cout << "Enter " << n << " elements:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    for (int i = 0; i < n; i++) {
+        sum += arr[i];
+    }
+    average = sum / n;
+    cout << "The average of all elements in the array is: " << average << endl;
+    return 0;
+}
+
+40.
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cout << "Enter the size of the array: ";
+    cin >> n;
+    int arr[n];
+    cout << "Enter " << n << " elements:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    int firstLargest = INT_MIN, secondLargest = INT_MIN;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] > firstLargest) {
+            secondLargest = firstLargest;
+            firstLargest = arr[i]; 
+        } else if (arr[i] > secondLargest && arr[i] < firstLargest) {
+            secondLargest = arr[i]; 
+        }
+    }
+    if (secondLargest == INT_MIN) {
+        cout << "There is no second largest element." << endl;
+    } else {
+        cout << "The second largest element in the array is: " << secondLargest << endl;
+    }
+    return 0;
+}
+
+41.
+#include <iostream>
+using namespace std;
+int main() {
+    int n, value, count = 0;
+    cout << "Enter the size of the array: ";
+    cin >> n;
+    int arr[n];
+    cout << "Enter " << n << " elements:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    cout << "Enter the value to find occurrences: ";
+    cin >> value;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == value) {
+            count++;
+        }
+    }
+    cout << "The value " << value << " occurs " << count << " times in the array." << endl;
+    return 0;
+}
+
+42.
+#include <iostream>
+using namespace std;
+int main() {
+    int n1, n2;
+    cout << "Enter the size of the first array: ";
+    cin >> n1;
+    int arr1[n1];
+    cout << "Enter " << n1 << " elements for the first array:\n";
+    for (int i = 0; i < n1; i++) {
+        cin >> arr1[i];
+    }
+    cout << "Enter the size of the second array: ";
+    cin >> n2;
+    int arr2[n2];
+    cout << "Enter " << n2 << " elements for the second array:\n";
+    for (int i = 0; i < n2; i++) {
+        cin >> arr2[i];
+    }
+    int merged[n1 + n2];
+    for (int i = 0; i < n1; i++) {
+        merged[i] = arr1[i];
+    }
+    for (int i = 0; i < n2; i++) {
+        merged[n1 + i] = arr2[i]; 
+    }
+    cout << "Merged array:\n";
+    for (int i = 0; i < n1 + n2; i++) {
+        cout << merged[i] << " ";
+    }
+    cout << endl;
+    return 0;
+}
+
+43.
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cout << "Enter the size of the array: ";
+    cin >> n;
+    int* arr = new int[n];
+    cout << "Enter " << n << " elements:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    cout << "The values in the dynamic array are:\n";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    delete[] arr;
+    return 0;
+}
+
+44.
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+    int rows, cols;
+    printf("Enter number of rows: ");
+    scanf("%d", &rows);
+    printf("Enter number of columns: ");
+    scanf("%d", &cols);
+    int **array = (int **)malloc(rows * sizeof(int *));
+    for (int i = 0; i < rows; i++) {
+        array[i] = (int *)malloc(cols * sizeof(int));
+    }
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            array[i][j] = i * cols + j;
+        }
+    }
+    printf("The dynamic 2D array is:\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("%d ", array[i][j]);
+        }
+        printf("\n");
+    }
+    for (int i = 0; i < rows; i++) {
+        free(array[i]);
+    }
+    free(array);
+    return 0;
+}
+
+45.
+#include <iostream>
+using namespace std;
+int main() {
+    int a[3][3] = {{1, 2, 3}, {1, 2, 3}, {1, 2, 3}};
+    int b[3][3] = {{1, 1, 1}, {2, 1, 2}, {3, 2, 1}};
+    int c[3][3];
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            c[i][j] = a[i][j] + b[i][j];
+        }
+    }
+    cout << "Resultant Matrix after addition:\n";
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            cout << c[i][j] << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+46.
+#include<iostream>
+using namespace std;
+int main(){
+	int a[3][3]={{1,2,3}, {1,2,3}, {1,2,3}};
+    int b[3][3]={{1,1,1}, {2,1,2}, {3,2,1}};
+    int c[3][3]={0};
+    for(int i=0;i<3;i++){
+	for(int j=0;j<3;j++){
+        c[i][j]=0;
+         for(int k=0;k<3;k++){
+		  c[i][j]+=a[i][k]+b[k][j]; 
+		  }
+             cout<<c[i][j]<<" ";
+}
+cout<<endl;
+}
+}
+
+47.
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cout << "Enter the size of the matrix (n x n): ";
+    cin >> n;
+
+    int matrix[n][n];
+    cout << "Enter the elements of the matrix:\n";
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cin >> matrix[i][j];
+        }
+    }
+    int primaryDiagonalSum = 0, secondaryDiagonalSum = 0;
+    for (int i = 0; i < n; i++) {
+        primaryDiagonalSum += matrix[i][i];               
+        secondaryDiagonalSum += matrix[i][n - i - 1];   
+    }
+    cout << "Sum of primary diagonal: " << primaryDiagonalSum << endl;
+    cout << "Sum of secondary diagonal: " << secondaryDiagonalSum << endl;
+    cout << "Total sum of diagonals: " << primaryDiagonalSum + secondaryDiagonalSum << endl;
+    return 0;
+}
+
+
