@@ -1,0 +1,284 @@
+//subset or not subset
+
+#include <iostream>
+using namespace std;
+
+int isSubset(int arr1[], int size1, int arr2[], int size2) {
+    for (int i = 0; i < size1; i++) {
+        int found = 0;
+        for (int j = 0; j < size2; j++) {
+            if (arr1[i] == arr2[j]) {
+                found = 1;
+                break;
+            }
+        }
+        if (found == 0) 
+		return 0; 
+    }
+    return 1; 
+}
+
+int main() {
+    int arr1[] = {1, 2};
+    int arr2[] = {1, 2, 3};
+
+    if (isSubset(arr1, 2, arr2, 3))
+        cout << "Array 1 is a subset of Array 2\n";
+    else
+        cout << "Not a Subset\n";
+
+    return 0;
+}
+
+
+//count the number of digits
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int number;
+    int count = 0;
+
+    cout << "Enter an integer: ";
+    cin >> number;
+
+    if (number < 0) {
+        number = -number; 
+    }
+
+    while (number > 0) {
+        count++;
+        number /= 10; 
+    }
+
+    cout << "Number of digits: " << count << endl;
+
+    return 0;
+}
+
+//duplicate character in a string
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    string str;
+    cout << "Enter a string: ";
+    getline(cin, str); 
+    
+    cout << "Duplicate characters: ";
+    for (int i = 0; i < str.length(); i++) {
+        for (int j = i + 1; j < str.length(); j++) {
+            if (str[i] == str[j]) {
+                cout << str[i] << " ";
+                break; 
+            }
+        }
+    }
+    cout << endl;
+
+    return 0;
+}
+
+
+//array is sorted or not
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5}; 
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int sorted = 1; 
+
+    for (int i = 1; i < size; i++) {
+        if (arr[i] < arr[i - 1]) {
+            sorted = 0; 
+            break;
+        }
+    }
+
+    if (sorted == 1) {
+        cout << "Array is sorted." << endl;
+    } else {
+        cout << "Array is not sorted." << endl;
+    }
+
+    return 0;
+}
+
+
+//strong number
+
+#include <iostream>
+using namespace std;
+
+int factorial(int n) {
+    int fact = 1;
+    for (int i = 1; i <= n; i++) {
+        fact *= i;
+    }
+    return fact;
+}
+
+int main() {
+    int number;
+    cout << "Enter a number: ";
+    cin >> number;
+
+    int sum = 0;
+    int temp = number;
+    
+    while (temp > 0) {
+        int digit = temp % 10; 
+        sum += factorial(digit); 
+        temp /= 10; 
+    }
+
+    if (sum == number) {
+        cout << number << " is a strong number." << endl;
+    } else {
+        cout << number << " is not a strong number." << endl;
+    }
+
+    return 0;
+}
+
+//automorphic or not
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int number;
+    cout << "Enter a number: ";
+    cin >> number;
+
+    int square = number * number; 
+    int temp = number;
+    
+    while (temp > 0) {
+        if (temp % 10 != square % 10) {
+            cout << number << " is not an automorphic number." << endl;
+            return 0;
+        }
+        temp /= 10; 
+        square /= 10; 
+    }
+
+    cout << number << " is an automorphic number." << endl;
+
+    return 0;
+}
+
+//class for box length,width and breadth
+
+#include <iostream>
+using namespace std;
+
+class Box {
+public:
+    double length;
+    double width;
+    double height;
+
+    Box(double l, double w, double h) : length(l), width(w), height(h) {}
+
+    double volume() {
+        return length * width * height;
+    }
+};
+
+int main() {
+    double length, width, height;
+
+    cout << "Enter length, width, and height of the box: ";
+    cin >> length >> width >> height;
+
+    Box box(length, width, height);
+
+    cout << "Volume of the box: " << box.volume() << endl;
+
+    return 0;
+}
+
+//rearrange array
+
+#include <iostream>
+using namespace std;
+
+void bubbleSort(int arr[], int size) {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = 0; j < size - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    int arr[] = {64, 34, 25, 12, 22, 11, 90}; 
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    bubbleSort(arr, size);
+
+    cout << "Sorted array: ";
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
+//overloading
+
+#include <iostream>
+using namespace std;
+
+class Number {
+public:
+    int value;
+
+    Number(int v) : value(v) {}
+
+    Number operator+(const Number& n) {
+        return Number(value + n.value);
+    }
+};
+
+int main() {
+    Number num1(5); 
+    Number num2(10); 
+    Number sum = num1 + num2; 
+
+    cout << "Sum: " << sum.value << endl; 
+
+    return 0;
+}
+
+//square pattern
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int size;
+
+    cout << "Enter the size of the square: ";
+    cin >> size;
+
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            cout << "* "; 
+        }
+        cout << endl; 
+    }
+
+    return 0;
+}
+
