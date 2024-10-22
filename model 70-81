@@ -1,0 +1,327 @@
+//Print time in 12hr format
+
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+int main() {
+    time_t now = time(0);
+    tm *ltm = localtime(&now);
+
+    int hour = ltm->tm_hour % 12;
+    int minute = ltm->tm_min;
+    int second = ltm->tm_sec;
+    string period = (ltm->tm_hour >= 12) ? "PM" : "AM";
+
+    if (hour == 0) hour = 12;
+
+    cout << "Current time: " << hour << ":" << minute << ":" << second << " " << period << endl;
+
+    return 0;
+}
+
+
+//Create class and appliances on washing machine
+
+
+#include <iostream>
+using namespace std;
+
+class WashingMachine {
+private:
+    string brand;
+    int capacity;
+
+public:
+    WashingMachine(string b, int c) {
+        brand = b;
+        capacity = c;
+    }
+
+    void displayDetails() {
+        cout << "Brand: " << brand << endl;
+        cout << "Capacity: " << capacity << " kg" << endl;
+    }
+
+    void start() {
+        cout << "Washing machine started." << endl;
+    }
+
+    void stop() {
+        cout << "Washing machine stopped." << endl;
+    }
+};
+
+int main() {
+    WashingMachine wm("LG", 7);
+    wm.displayDetails();
+    wm.start();
+    wm.stop();
+
+    return 0;
+}
+
+
+//reverse a number
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num, reversedNum = 0;
+
+    cout << "Enter an integer: ";
+    cin >> num;
+
+    while (num != 0) {
+        int digit = num % 10;
+        reversedNum = reversedNum * 10 + digit;
+        num /= 10;
+    }
+
+    cout << "Reversed number: " << reversedNum << endl;
+
+    return 0;
+}
+
+
+//Create a class on vehicle details
+
+#include <iostream>
+using namespace std;
+
+class Vehicle {
+public:
+    string make;
+    string model;
+    int year;
+    string color;
+
+    void displayDetails() {
+        cout << "Vehicle Details:\n";
+        cout << "Make: " << make << endl;
+        cout << "Model: " << model << endl;
+        cout << "Year: " << year << endl;
+        cout << "Color: " << color << endl;
+    }
+};
+
+int main() {
+    Vehicle car;
+    car.make = "Toyota";
+    car.model = "Camry";
+    car.year = 2021;
+    car.color = "Blue";
+
+    car.displayDetails();
+
+    return 0;
+}
+
+
+//Harshad number
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num, sum = 0, originalNum;
+
+    cout << "Enter a number: ";
+    cin >> num;
+
+    originalNum = num;
+
+    while (num != 0) {
+        sum += num % 10;
+        num /= 10;
+    }
+
+    if (originalNum % sum == 0) {
+        cout << originalNum << " is a Harshad number." << endl;
+    } else {
+        cout << originalNum << " is not a Harshad number." << endl;
+    }
+
+    return 0;
+}
+
+
+//Concatenate 2 strings
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    string str1, str2, result;
+
+    cout << "Enter the first string: ";
+    getline(cin, str1);
+
+    cout << "Enter the second string: ";
+    getline(cin, str2);
+
+    result = str1 + str2;
+
+    cout << "Concatenated string: " << result << endl;
+
+    return 0;
+}
+
+
+//Sum of exponential series up to nth term
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    double x;
+    int n;
+    double sum = 1.0, term = 1.0;
+
+    cout << "Enter the value of x: ";
+    cin >> x;
+    cout << "Enter the number of terms (n): ";
+    cin >> n;
+
+    for (int i = 1; i <= n; i++) {
+        term *= x / i;
+        sum += term;
+    }
+
+    cout << "Sum: " << sum << endl;
+
+    return 0;
+}
+
+
+//Identify subarray within the array whose elements sum up to given target value
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> arr = {1, 2, 3, 7, 5};
+    int target;
+
+    cout << "Enter the target sum: ";
+    cin >> target;
+
+    for (int start = 0; start < arr.size(); start++) {
+        int sum = 0;
+        for (int end = start; end < arr.size(); end++) {
+            sum += arr[end];
+            if (sum == target) {
+                cout << "Subarray found between indices " << start << " and " << end << endl;
+                return 0;
+            }
+        }
+    }
+
+    cout << "No subarray found." << endl;
+    return 0;
+}
+
+
+//Area of circle
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    const double PI = 3.14159;
+    double radius, area;
+
+    cout << "Enter the radius of the circle: ";
+    cin >> radius;
+
+    area = PI * radius * radius;
+
+    cout << "Area of the circle: " << area << endl;
+
+    return 0;
+}
+
+
+//Products of element in array
+
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> arr = {1, 2, 3, 4, 5};
+    int product = 1;
+
+    for (int num : arr) {
+        product *= num;
+    }
+
+    cout << "Product of the elements in the array: " << product << endl;
+
+    return 0;
+}
+
+
+//Multiply 2 matrices
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    const int MAX_SIZE = 10;
+    int firstMatrix[MAX_SIZE][MAX_SIZE], secondMatrix[MAX_SIZE][MAX_SIZE], result[MAX_SIZE][MAX_SIZE];
+    int rowFirst, columnFirst, rowSecond, columnSecond;
+
+    cout << "Enter rows and columns for the first matrix: ";
+    cin >> rowFirst >> columnFirst;
+
+    cout << "Enter elements of the first matrix:\n";
+    for (int i = 0; i < rowFirst; i++) {
+        for (int j = 0; j < columnFirst; j++) {
+            cin >> firstMatrix[i][j];
+        }
+    }
+
+    cout << "Enter rows and columns for the second matrix: ";
+    cin >> rowSecond >> columnSecond;
+
+    if (columnFirst != rowSecond) {
+        cout << "Error! Column of the first matrix must be equal to row of the second matrix." << endl;
+        return 1;
+    }
+
+    cout << "Enter elements of the second matrix:\n";
+    for (int i = 0; i < rowSecond; i++) {
+        for (int j = 0; j < columnSecond; j++) {
+            cin >> secondMatrix[i][j];
+        }
+    }
+
+    for (int i = 0; i < rowFirst; i++) {
+        for (int j = 0; j < columnSecond; j++) {
+            result[i][j] = 0; 
+            for (int k = 0; k < columnFirst; k++) {
+                result[i][j] += firstMatrix[i][k] * secondMatrix[k][j]; 
+            }
+        }
+    }
+
+    cout << "Resulting matrix after multiplication:\n";
+    for (int i = 0; i < rowFirst; i++) {
+        for (int j = 0; j < columnSecond; j++) {
+            cout << result[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
