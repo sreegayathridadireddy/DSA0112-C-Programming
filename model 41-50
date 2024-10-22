@@ -1,0 +1,261 @@
+41.
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+
+    int root = sqrt(n);
+    if (root * root == n) {
+        cout << n << " is a perfect square." << endl;
+    } else {
+        cout << n << " is not a perfect square." << endl;
+    }
+    return 0;
+}
+
+42.
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    double sum = 0, number;
+
+    cout << "Enter how many numbers: ";
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        cout << "Enter number " << i + 1 << ": ";
+        cin >> number;
+        sum += number;
+    }
+
+    double average = sum / n;
+    cout << "Average: " << average << endl;
+    return 0;
+}
+
+
+43.
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str, result;
+    char ch;
+
+    cout << "Enter a string: ";
+    cin >> str;
+    cout << "Enter character to remove: ";
+    cin >> ch;
+
+    for (char c : str) {
+        if (c != ch) {
+            result += c;
+        }
+    }
+
+    cout << "Modified string: " << result << endl;
+    return 0;
+}
+
+
+44.
+#include <iostream>
+using namespace std;
+
+void decimalToBinary(int n) {
+    if (n > 1)
+        decimalToBinary(n / 2);
+
+    cout << n % 2;
+}
+
+int main() {
+    int n;
+    cout << "Enter a decimal number: ";
+    cin >> n;
+
+    cout << "Binary: ";
+    decimalToBinary(n);
+    cout << endl;
+
+    return 0;
+}
+
+
+45.
+#include <iostream>
+using namespace std;
+
+int main() {
+    int year;
+    cout << "Enter a year: ";
+    cin >> year;
+
+    if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+        cout << year << " is a leap year." << endl;
+    } else {
+        cout << year << " is not a leap year." << endl;
+    }
+    return 0;
+}
+
+
+46.
+#include <iostream>
+#include <string>
+using namespace std;
+
+int binaryToDecimal(string binary) {
+    int decimal = 0;
+    int base = 1;
+
+    for (int i = binary.length() - 1; i >= 0; i--) {
+        if (binary[i] == '1') {
+            decimal += base;
+        }
+        base *= 2;
+    }
+    return decimal;
+}
+
+int main() {
+    string binary;
+    cout << "Enter a binary number: ";
+    cin >> binary;
+
+    cout << "Decimal: " << binaryToDecimal(binary) << endl;
+    return 0;
+}
+
+
+47.
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, sum = 0;
+    cout << "Enter a number: ";
+    cin >> n;
+
+    sum = n * (n + 1) / 2;
+
+    cout << "Sum of first " << n << " natural numbers: " << sum << endl;
+    return 0;
+}
+
+
+48.
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int n, sum = 0, original, digits = 0;
+
+    cout << "Enter a number: ";
+    cin >> n;
+    original = n;
+
+    int temp = n;
+    while (temp != 0) {
+        digits++;
+        temp /= 10;
+    }
+
+    temp = n;
+    while (temp != 0) {
+        sum += pow(temp % 10, digits);
+        temp /= 10;
+    }
+
+    if (sum == original) {
+        cout << original << " is an Armstrong number." << endl;
+    } else {
+        cout << original << " is not an Armstrong number." << endl;
+    }
+
+    return 0;
+}
+
+
+49.
+#include <iostream>
+#include <string>
+using namespace std;
+
+string interleaveStrings(const string &s1, const string &s2) {
+    string result = "";
+    int i = 0, j = 0;
+
+    while (i < s1.length() || j < s2.length()) {
+        if (i < s1.length()) {
+            result += s1[i++];
+        }
+        if (j < s2.length()) {
+            result += s2[j++];
+        }
+    }
+
+    return result;
+}
+
+int main() {
+    string s1, s2;
+    cout << "Enter first string: ";
+    cin >> s1;
+    cout << "Enter second string: ";
+    cin >> s2;
+
+    cout << "Interleaved string: " << interleaveStrings(s1, s2) << endl;
+    return 0;
+}
+
+
+
+50.
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n1, n2;
+    
+    cout << "Enter size of first array: ";
+    cin >> n1;
+    int arr1[n1];
+    cout << "Enter elements of first array: ";
+    for (int i = 0; i < n1; i++) {
+        cin >> arr1[i];
+    }
+
+    cout << "Enter size of second array: ";
+    cin >> n2;
+    int arr2[n2];
+    cout << "Enter elements of second array: ";
+    for (int i = 0; i < n2; i++) {
+        cin >> arr2[i];
+    }
+
+    int merged[n1 + n2];
+    for (int i = 0; i < n1; i++) {
+        merged[i] = arr1[i];
+    }
+    for (int i = 0; i < n2; i++) {
+        merged[n1 + i] = arr2[i];
+    }
+
+    cout << "Merged array: ";
+    for (int i = 0; i < n1 + n2; i++) {
+        cout << merged[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
