@@ -1,0 +1,43 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+class shape{
+	public:
+		virtual double area()=0;
+		virtual double perimeter()=0;
+};
+class rectangle:public shape{
+	private:
+		double length,width;
+	public:
+		rectangle(double l,double w):length(l),width(w){}
+		double area(){
+			return length*width;
+		}
+		double perimeter(){
+			return 2*(length+width);
+		}
+};
+class triangle:public shape{
+	private:
+		double a,b,c;
+	public:
+		triangle(double x,double y,double z):a(x),b(y),c(z){}
+		double area(){
+			double s=(a+b+c)/2;
+			return sqrt(s*(s-a)*(s-b)*(s-c));
+		}
+		double perimeter(){
+			return a+b+c;
+		}
+};
+int main(){
+	rectangle rect(4,5);
+	cout<<"the area of rectangle: "<<rect.area()<<endl;
+	cout<<"the perimeter of rectangle: "<<rect.perimeter()<<endl;
+	
+	triangle tri(3,4,5);
+	cout<<"the area of triangle: "<<tri.area()<<endl;
+	cout<<"the perimeter of triangle: "<<tri.perimeter()<<endl;
+	return 0;
+}
