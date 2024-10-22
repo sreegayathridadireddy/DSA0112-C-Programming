@@ -1,0 +1,218 @@
+
+31.
+#include <iostream>
+#include <unordered_map>
+#include <string>
+
+using namespace std;
+
+string longestUniqueSubstring(const string &s) {
+    unordered_map<char, int> charIndex;
+    int start = 0, maxLength = 0;
+    string longestSub = "";
+
+    for (int i = 0; i < s.length(); ++i) {
+        if (charIndex.find(s[i]) != charIndex.end() && charIndex[s[i]] >= start) {
+            start = charIndex[s[i]] + 1;
+        }
+        charIndex[s[i]] = i;
+
+        if (i - start + 1 > maxLength) {
+            maxLength = i - start + 1;
+            longestSub = s.substr(start, maxLength);
+        }
+    }
+    return longestSub;
+}
+
+int main() {
+    string input = "abcabcbb";
+    cout << "Longest substring: " << longestUniqueSubstring(input) << endl;
+    return 0;
+}
+
+
+32.
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n = 5;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= i; j++) {
+            cout << i;
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+33.
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n = 4;
+    int matrix[4][4] = { {1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16} };
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j <= i; j++) {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+34.
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Employee {
+    string name;
+    int age;
+    double salary;
+
+public:
+    Employee(string n, int a, double s) : name(n), age(a), salary(s) {}
+    
+    int getNameLength() {
+        return name.length();
+    }
+};
+
+int main() {
+    Employee emp("John Doe", 30, 50000);
+    cout << "Employee name length: " << emp.getNameLength() << endl;
+    return 0;
+}
+
+
+35.
+#include <iostream>
+using namespace std;
+
+bool isPrime(int num) {
+    if (num <= 1) return false;
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) return false;
+    }
+    return true;
+}
+
+int main() {
+    int n, sum = 0;
+    cout << "Enter a number: ";
+    cin >> n;
+
+    for (int i = 2; i <= n; i++) {
+        if (isPrime(i)) {
+            sum += i;
+        }
+    }
+
+    cout << "Sum of primes up to " << n << " is " << sum << endl;
+    return 0;
+}
+
+
+36.
+#include <iostream>
+using namespace std;
+
+int factorial(int n) {
+    if (n == 0 || n == 1) return 1;
+    return n * factorial(n - 1);
+}
+
+int main() {
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+
+    cout << "Factorial of " << num << " is " << factorial(num) << endl;
+    return 0;
+}
+
+
+37.
+#include <iostream>
+using namespace std;
+
+class Printer {
+public:
+    virtual void print() {
+        cout << "Printing from Printer" << endl;
+    }
+};
+
+class LaserPrinter : public Printer {
+public:
+    void print() override {
+        cout << "Printing from LaserPrinter" << endl;
+    }
+};
+
+int main() {
+    Printer* printer = new LaserPrinter();
+    printer->print();
+    delete printer;
+    return 0;
+}
+
+
+38.
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a = 5, b = 10;
+    a = a + b;
+    b = a - b;
+    a = a - b;
+
+    cout << "After swapping: a = " << a << ", b = " << b << endl;
+    return 0;
+}
+
+
+39.
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string s = "Hello World";
+    string reversed = "";
+
+    for (int i = s.length() - 1; i >= 0; i--) {
+        reversed += s[i];
+    }
+
+    cout << "Reversed string: " << reversed << endl;
+    return 0;
+}
+
+
+40.
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n = 3;
+    int matrix[3][3] = { {1, 0, 0}, {0, 1, 0}, {0, 0, 1} };
+    bool isIdentity = true;
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if ((i == j && matrix[i][j] != 1) || (i != j && matrix[i][j] != 0)) {
+                isIdentity = false;
+            }
+        }
+    }
+
+    cout << (isIdentity ? "Identity Matrix" : "Not an Identity Matrix") << endl;
+    return 0;
+}
+
