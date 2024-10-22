@@ -1,0 +1,232 @@
+51.
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, sum = 0;
+    cout << "Enter a number: ";
+    cin >> n;
+
+    while (n != 0) {
+        sum += n % 10;
+        n /= 10;
+    }
+
+    cout << "Sum of digits: " << sum << endl;
+    return 0;
+}
+
+
+52.
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, reversed = 0, original;
+    cout << "Enter a number: ";
+    cin >> n;
+
+    original = n;
+
+    while (n != 0) {
+        reversed = reversed * 10 + n % 10;
+        n /= 10;
+    }
+
+    if (original == reversed) {
+        cout << original << " is a palindrome." << endl;
+    } else {
+        cout << original << " is not a palindrome." << endl;
+    }
+
+    return 0;
+}
+
+
+53.
+#include <iostream>
+using namespace std;
+
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+int lcm(int a, int b) {
+    return (a * b) / gcd(a, b);
+}
+
+int main() {
+    int a, b;
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+
+    cout << "HCF: " << gcd(a, b) << endl;
+    cout << "LCM: " << lcm(a, b) << endl;
+    return 0;
+}
+
+
+
+54.
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter the size of the array: ";
+    cin >> n;
+    int arr[n];
+
+    cout << "Enter array elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += arr[i];
+    }
+
+    cout << "Sum of circular array: " << sum << endl;
+    return 0;
+}
+
+
+55.
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b;
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+
+    cout << "Minimum: " << (a < b ? a : b) << endl;
+    return 0;
+}
+
+
+
+56.
+#include <iostream>
+#include <string>
+using namespace std;
+
+class BankAccount {
+    string accountHolder;
+    int accountNumber;
+    double balance;
+
+public:
+    BankAccount(string holder, int number, double bal) {
+        accountHolder = holder;
+        accountNumber = number;
+        balance = bal;
+    }
+
+    void displayDetails() {
+        cout << "Account Holder: " << accountHolder << endl;
+        cout << "Account Number: " << accountNumber << endl;
+        cout << "Balance: " << balance << endl;
+    }
+};
+
+int main() {
+    BankAccount account("John Doe", 12345678, 1500.50);
+    account.displayDetails();
+    return 0;
+}
+
+
+57.
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter the number of rows: ";
+    cin >> n;
+
+    for (int i = n; i >= 1; i--) {
+        for (int j = 1; j <= i; j++) {
+            cout << "*";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+
+58.
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+
+    if (n % 2 == 0) {
+        cout << n << " is even." << endl;
+    } else {
+        cout << n << " is odd." << endl;
+    }
+    return 0;
+}
+
+
+
+59.
+#include <iostream>
+#include <climits>
+using namespace std;
+
+int main() {
+    int n, digit, smallest = INT_MAX, largest = INT_MIN;
+    cout << "Enter a number: ";
+    cin >> n;
+
+    while (n != 0) {
+        digit = n % 10;
+        if (digit < smallest) {
+            smallest = digit;
+        }
+        if (digit > largest) {
+            largest = digit;
+        }
+        n /= 10;
+    }
+
+    cout << "Smallest digit: " << smallest << endl;
+    cout << "Largest digit: " << largest << endl;
+    return 0;
+}
+
+
+
+60.
+#include <iostream>
+using namespace std;
+
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+int main() {
+    int a, b;
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+
+    cout << "GCD: " << gcd(a, b) << endl;
+    return 0;
+}
