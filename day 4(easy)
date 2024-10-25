@@ -1,0 +1,383 @@
+1.
+#include <iostream>
+#include <string>
+using namespace std;
+class Student {
+protected:
+    string name;
+    int age;
+    char gender;
+
+public:
+    void getBasicInfo() {
+        cout << "Enter student's basic information:\n";
+        cout << "Name?: ";
+        getline(cin, name);
+        cout << "Age?: ";
+        string input;
+        cin >> input;
+        try {
+            age = stoi(input);
+        } catch (...) {
+            cout << "Invalid age input!\n";
+            exit(1);
+        }
+        cout << "Gender?: ";
+        cin >> gender;
+        if (gender != 'M' && gender != 'F') {
+            cout << "Invalid gender input!\n";
+            exit(1);
+        }
+    }
+
+    void displayBasicInfo() {
+        cout << "Name: " << name << ",Age: " << age << ",Gender: " << gender << endl;
+    }
+};
+
+class Result : public Student {
+private:
+    int totalMarks;
+    char grade;
+
+public:
+    void getResultInfo() {
+        cout << "Enter student's result information:\n";
+        cout << "Total Marks?: ";
+        cin >> totalMarks;
+        if (totalMarks < 0 || totalMarks > 500) {
+            cout << "Invalid total marks input!\n";
+            exit(1);
+        }
+        cout << "Grade?: ";
+        cin >> grade;
+        if (grade < 'A' || grade > 'D') {
+            cout << "Invalid grade input!\n";
+            exit(1);
+        }
+    }
+
+    void displayInfo() {
+        displayBasicInfo();
+        int percentage = (totalMarks * 100) / 500;
+        cout << "Total Marks: " << totalMarks << ",Percentage: " << percentage << ",Grade: " << grade << endl;
+    }
+};
+
+int main() {
+    Result student;
+    cin.ignore();
+    student.getBasicInfo();
+    student.getResultInfo();
+    student.displayInfo();
+
+    return 0;
+}
+
+2.
+#include <iostream>
+#include <string>
+using namespace std;
+
+class A {
+private:
+    int x;
+
+public:
+    void setX(int value) {
+        x = value;
+    }
+    int getX() {
+        return x;
+    }
+};
+
+class B : private A {
+public:
+    void setValue(int value) {
+        setX(value);
+    }
+    void displayValue() {
+        cout << "Here x is the protected data member of class A, class A is inherited privately to class B. ";
+        cout << "In private inheritance only protected data member and member functions can be accessed by the derived class.\n";
+        cout << "Value of x: " << getX() << endl;
+    }
+};
+
+int main() {
+    B obj;
+    string input;
+    cout << "Enter value of x: ";
+    cin >> input;
+
+    try {
+        int x = stoi(input);
+        obj.setValue(x);
+        obj.displayValue();
+    } catch (...) {
+        cout << "Invalid input!" << endl;
+    }
+
+    return 0;
+}
+
+3.
+#include <iostream>
+using namespace std;
+
+class A {
+public:
+    int a;
+    void setA(int value) {
+        a = value;
+    }
+};
+
+class B {
+public:
+    int b;
+    void setB(int value) {
+        b = value;
+    }
+};
+
+class C : public A, public B {
+public:
+    int c;
+    void setC(int value) {
+        c = value;
+    }
+
+    void displayValues() {
+        cout << "value of a: " << a << endl;
+        cout << "value of b: " << b << endl;
+        cout << "value of c: " << c << endl;
+    }
+};
+
+int main() {
+    C obj;
+    obj.setA(100);
+    obj.setB(200);
+    obj.setC(300);
+    obj.displayValues();
+
+    return 0;
+}
+
+4.
+#include <iostream>
+using namespace std;
+
+int main() {
+    int var1 = 10;
+    float var2 = 20.5;
+    char var3 = 'A';
+
+    cout << "Address of var1: " << &var1 << endl;
+    cout << "Address of var2: " << &var2 << endl;
+    cout << "Address of var3: " << (void*)&var3 << endl;
+
+    return 0;
+}
+
+5.
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+class Shape {
+public:
+    virtual double area() = 0;
+};
+
+class Circle : public Shape {
+private:
+    double radius;
+
+public:
+    void setRadius(double r) {
+        radius = r;
+    }
+
+    double area() override {
+        return M_PI * radius * radius;
+    }
+};
+
+class Square : public Shape {
+private:
+    double length;
+
+public:
+    void setLength(double l) {
+        length = l;
+    }
+
+    double area() override {
+        return length * length;
+    }
+};
+
+int main() {
+    Circle circle;
+    Square square;
+
+    double radius, length;
+
+    cout << "Enter radius of the circle: ";
+    cin >> radius;
+    circle.setRadius(radius);
+
+    cout << "Enter the length of the square: ";
+    cin >> length;
+    square.setLength(length);
+
+    cout << "Area of square: " << square.area() << endl;
+    cout << "Area of circle: " << circle.area() << endl;
+
+    return 0;
+}
+
+6.
+#include <iostream>
+using namespace std;
+
+class Example {
+private:
+    int x;
+
+public:
+    Example(int x) {
+        this->x = x;
+    }
+
+    void display() {
+        cout << "x = " << this->x << endl;
+    }
+};
+
+int main() {
+    Example obj(20);
+    obj.display();
+    return 0;
+}
+
+7.
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[3] = {10, 20, 30};
+    int* ptr = arr;
+
+    cout << "Displaying address using arrays: " << endl;
+    for (int i = 0; i < 3; i++) {
+        cout << "&arr[" << i << "] = " << &arr[i] << endl;
+    }
+
+    cout << "\nDisplaying address using pointers: " << endl;
+    for (int i = 0; i < 3; i++) {
+        cout << "ptr + " << i << " = " << (ptr + i) << endl;
+    }
+
+    return 0;
+}
+
+8.
+#include <iostream>
+using namespace std;
+
+class Input {
+protected:
+    int x, y;
+
+public:
+    void getInput() {
+        cout << "Enter value of x: ";
+        cin >> x;
+        cout << "Enter value of y: ";
+        cin >> y;
+    }
+};
+
+class Sum : public Input {
+public:
+    void calculateSum() {
+        cout << "Sum = " << (x + y) << endl;
+    }
+};
+
+int main() {
+    Sum sumObj;
+    sumObj.getInput();
+    sumObj.calculateSum();
+    return 0;
+}
+
+9.
+#include <iostream>
+using namespace std;
+
+class Rectangle {
+private:
+    int length;
+    int width;
+
+public:
+    void setDimensions(int l, int w) {
+        length = l;
+        width = w;
+    }
+
+    int area() {
+        return length * width;
+    }
+};
+
+int main() {
+    Rectangle rectangles[2];
+
+    rectangles[0].setDimensions(7, 4); 
+    rectangles[1].setDimensions(5, 4); 
+
+    cout << rectangles[0].area() << endl;
+    cout << rectangles[1].area() << endl;
+
+    return 0;
+}
+
+10.
+#include <iostream>
+using namespace std;
+
+class Complex {
+private:
+    float real;
+    float imag;
+
+public:
+    void setValues(float r, float i) {
+        real = r;
+        imag = i;
+    }
+
+    void display() {
+        cout << "The real part is " << real << endl;
+        cout << "The imaginary part is " << imag << endl;
+    }
+};
+
+int main() {
+    Complex* ptr = new Complex();
+    float realPart, imagPart;
+
+    realPart = 1;   
+    imagPart = 54;
+    ptr->setValues(realPart, imagPart);
+    ptr->display();
+
+    delete ptr;
+    return 0;
+}
+
