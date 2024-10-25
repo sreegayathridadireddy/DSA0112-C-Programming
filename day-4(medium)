@@ -1,0 +1,221 @@
+
+1.
+#include <iostream>
+using namespace std;
+
+class Circle {
+protected:
+    float radius;
+
+public:
+    void getRadius() {
+        cout << "Getting the radius of the circle" << endl;
+        cout << "Enter the radius: ";
+        cin >> radius;
+    }
+
+    float area() {
+        return 3.14 * radius * radius; 
+    }
+};
+
+class Rectangle : public Circle {
+protected:
+    float length, breadth;
+
+public:
+    void getDimensions() {
+        cout << "Getting the length and breadth of the rectangle" << endl;
+        cout << "Enter the length: ";
+        cin >> length;
+        cout << "Enter the breadth: ";
+        cin >> breadth;
+    }
+
+    float area() {
+        return length * breadth;
+    }
+};
+
+class Cylinder : public Rectangle {
+private:
+    float height;
+
+public:
+    void getCylinderDetails() {
+        cout << "Getting the height and radius of the cylinder" << endl;
+        cout << "Enter the radius: ";
+        cin >> radius;  
+        cout << "Enter the height: ";
+        cin >> height;
+    }
+
+    float volume() {
+        return area() * height;
+    }
+};
+
+int main() {
+    Cylinder cylinder;
+    
+    cylinder.getRadius();
+    cout << "The area = " << cylinder.area() << endl;
+
+    cylinder.getDimensions();
+    cout << "The area = " << cylinder.area() << endl;
+
+    cylinder.getCylinderDetails();
+    cout << "The volume of the cylinder is: " << cylinder.volume() << endl;
+
+    return 0;
+}
+
+2.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+class Employee {
+private:
+    string name;
+    int id;
+    float basicSalary;
+    float hra;
+    float da;
+
+public:
+    void input() {
+        cout << "Enter the employee name: ";
+        cin >> name;
+        cout << "Enter the employee id: ";
+        cin >> id;
+        cout << "Enter the basic salary: ";
+        cin >> basicSalary;
+        cout << "Enter the hra: ";
+        cin >> hra;
+        cout << "Enter the da: ";
+        cin >> da;
+    }
+
+    void display() {
+        float grossPay = basicSalary + hra + da;
+        float netPay = grossPay - (0.1 * grossPay); 
+        cout << fixed << setprecision(2);
+        cout << name << "\t" << id << "\t" << basicSalary << "\t" << hra << "\t" << da 
+             << "\t" << grossPay << "\t" << netPay << endl;
+    }
+};
+
+int main() {
+    int numEmployees;
+    cout << "****************" << endl;
+    cout << "Employee details" << endl;
+    cout << "****************" << endl;
+    cout << "Enter the number of employees: ";
+    cin >> numEmployees;
+
+    Employee* employees = new Employee[numEmployees];
+
+    for (int i = 0; i < numEmployees; i++) {
+        employees[i].input();
+    }
+
+    cout << "EMPLOYEE NAME\tID\tBASIC\tHRA\tDA\tGP\tNP" << endl;
+    for (int i = 0; i < numEmployees; i++) {
+        employees[i].display();
+    }
+
+    delete[] employees;
+    return 0;
+}
+
+3.
+#include <iostream>
+using namespace std;
+
+class Number {
+protected:
+    int num;
+
+public:
+    void input() {
+        cout << "Enter an integer number: ";
+        cin >> num;
+    }
+};
+
+class Square : public Number {
+public:
+    void calculateSquare() {
+        cout << "Square of " << num << " is: " << (num * num) << endl;
+    }
+};
+
+class Cube : public Number {
+public:
+    void calculateCube() {
+        cout << "Cube of " << num << " is: " << (num * num * num) << endl;
+    }
+};
+
+int main() {
+    Square square;
+    Cube cube;
+
+    square.input();
+    square.calculateSquare();
+
+    cube.input();
+    cube.calculateCube();
+
+    return 0;
+}
+
+4.
+#include <iostream>
+using namespace std;
+
+void findGreatest(int* p1, int* p2, int* p3) {
+    int greatest;
+
+    if (*p1 >= *p2 && *p1 >= *p3) {
+        greatest = *p1;
+    } else if (*p2 >= *p1 && *p2 >= *p3) {
+        greatest = *p2;
+    } else {
+        greatest = *p3;
+    }
+
+    cout << "The greatest is P2: " << greatest << endl;
+}
+
+int main() {
+    int num1, num2, num3;
+    cout << "Enter the three numbers: " << endl;
+    cin >> num1 >> num2 >> num3;
+
+    findGreatest(&num1, &num2, &num3);
+
+    return 0;
+}
+
+5.
+#include <iostream>
+using namespace std;
+
+int main() {
+    float numbers[4];
+    float* ptr = numbers;
+
+    cout << "Enter the 4 numbers: " << endl;
+    for (int i = 0; i < 4; i++) {
+        cin >> *(ptr + i);
+    }
+
+    cout << "Displaying the data: " << endl;
+    for (int i = 0; i < 4; i++) {
+        cout << *(ptr + i) << endl;
+    }
+
+    return 0;
+}
