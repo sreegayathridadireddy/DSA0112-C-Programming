@@ -1,0 +1,347 @@
+1.
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Customer {
+protected:
+    string name;
+    int accountNumber;
+    string accountType;
+    
+public:
+    void enterCustomerDetails() {
+        cout << "Enter Customer Name: ";
+        cin >> name;
+        cout << "Enter Account Number: ";
+        cin >> accountNumber;
+        cout << "Enter Account Type: ";
+        cin >> accountType;
+    }
+};
+
+class BankAccount : public Customer {
+protected:
+    float balance;
+
+public:
+    BankAccount() {
+        balance = 0.0;
+    }
+
+    void deposit(float amount) {
+        balance += amount;
+        cout << "Amount Deposited: " << amount << endl;
+    }
+
+    void withdraw(float amount) {
+        if (amount > balance) {
+            cout << "Insufficient Balance!" << endl;
+        } else {
+            balance -= amount;
+            cout << "Amount Withdrawn: " << amount << endl;
+        }
+    }
+
+    float getBalance() {
+        return balance;
+    }
+
+    void displayDetails() {
+        cout << "Customer Name: " << name << endl;
+        cout << "Account Number: " << accountNumber << endl;
+        cout << "Account Type: " << accountType << endl;
+        cout << "Balance: " << balance << endl;
+    }
+};
+
+class SavingsAccount : public BankAccount {
+    };
+
+class CurrentAccount : public BankAccount {
+  };
+
+int main() {
+    char accountType;
+    cout << "Enter S for saving customer and C for current a/c customer: ";
+    cin >> accountType;
+
+    BankAccount* account;
+
+    if (accountType == 'S' || accountType == 's') {
+        account = new SavingsAccount();
+    } else {
+        account = new CurrentAccount();
+    }
+
+    account->enterCustomerDetails();
+
+    int choice;
+    do {
+        cout << "\nChoose Your Choice\n";
+        cout << "1) Deposit\n";
+        cout << "2) Withdraw\n";
+        cout << "3) Display Balance\n";
+        cout << "4) Display with full Details\n";
+        cout << "5) Exit\n";
+        cout << "Enter Your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: {
+                float amount;
+                cout << "Enter amount to Deposit: ";
+                cin >> amount;
+                account->deposit(amount);
+                break;
+            }
+            case 2: {
+                float amount;
+                cout << "Balance: " << account->getBalance() << endl;
+                cout << "Enter amount to be withdrawn: ";
+                cin >> amount;
+                account->withdraw(amount);
+                break;
+            }
+            case 3:
+                cout << "Balance: " << account->getBalance() << endl;
+                break;
+            case 4:
+                account->displayDetails();
+                break;
+            case 5:
+                cout << "Thank You for Banking with us." << endl;
+                break;
+            default:
+                cout << "Invalid choice!" << endl;
+        }
+    } while (choice != 5);
+
+    delete account; 
+    return 0;
+}
+
+2.
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+protected:
+    int rollNumber;
+    string name;
+    string address;
+    string city;
+    int marks1, marks2, marks3;
+
+public:
+    void enterDetails() {
+        cout << "Enter student roll number: ";
+        cin >> rollNumber;
+        cout << "Enter student name: ";
+        cin.ignore();
+        getline(cin, name);
+        cout << "Enter student address: ";
+        getline(cin, address);
+        cout << "Enter student city: ";
+        getline(cin, city);
+        cout << "Enter the marks1: ";
+        cin >> marks1;
+        cout << "Enter the marks2: ";
+        cin >> marks2;
+        cout << "Enter the marks3: ";
+        cin >> marks3;
+    }
+
+    void displayDetails() {
+        cout << "Student Details:\n";
+        cout << "********************\n";
+        cout << "The student roll number: " << rollNumber << endl;
+        cout << "The student name: " << name << endl;
+        cout << "The student address: " << address << endl;
+        cout << "The student city: " << city << endl;
+        cout << "Marks1: " << marks1 << endl;
+        cout << "Marks2: " << marks2 << endl;
+        cout << "Marks3: " << marks3 << endl;
+    }
+
+    float calculatePercentage() {
+        return (marks1 + marks2 + marks3) / 3.0;
+    }
+
+    char calculateGrade() {
+        float percentage = calculatePercentage();
+        if (percentage >= 85) return 'A';
+        else if (percentage >= 70) return 'B';
+        else if (percentage >= 50) return 'C';
+        else return 'D';
+    }
+};
+
+int main() {
+    Student student;
+    student.enterDetails();
+    student.displayDetails();
+    float percentage = student.calculatePercentage();
+    cout << "Total percentage: " << percentage << endl;
+    cout << "Grade: " << student.calculateGrade() << endl;
+    return 0;
+}
+
+3.
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Employee {
+protected:
+    int employeeID;
+    string employeeName;
+    float basicSalary;
+
+public:
+    void inputDetails() {
+        cout << "Enter Employee ID: ";
+        cin >> employeeID;
+        cout << "Enter Employee Name: ";
+        cin.ignore();
+        getline(cin, employeeName);
+        cout << "Enter basic salary of Employee: ";
+        cin >> basicSalary;
+    }
+};
+
+class Salary : public Employee {
+protected:
+    float grossSalary;
+    float netSalary;
+
+public:
+    void calculateSalary() {
+        grossSalary = basicSalary + (0.10 * basicSalary); // 10% HRA
+        netSalary = grossSalary - (0.05 * grossSalary); // 5% deductions
+    }
+    
+    void displaySalary() {
+        cout << "Gross Salary = Rs." << grossSalary << endl;
+        cout << "Net Salary = Rs." << netSalary << endl;
+    }
+};
+
+int main() {
+    Salary emp;
+    emp.inputDetails();
+    emp.calculateSalary();
+    emp.displaySalary();
+    return 0;
+}
+
+4.
+#include <iostream>
+using namespace std;
+
+void sortArray(int* arr, int size) {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = 0; j < size - i - 1; j++) {
+            if (*(arr + j) > *(arr + j + 1)) {
+                
+                int temp = *(arr + j);
+                *(arr + j) = *(arr + j + 1);
+                *(arr + j + 1) = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    int arr[100], num, count = 0;
+
+    cout << "Enter Infinite Numbers and (-1 To Stop Reading)" << endl;
+    while (true) {
+        cin >> num;
+        if (num == -1) {
+            break;
+        }
+        arr[count] = num;
+        count++;
+    }
+
+    sortArray(arr, count);
+
+    cout << "The Ascending order is given below:" << endl;
+    for (int i = 0; i < count; i++) {
+        cout << arr[i] << endl;
+    }
+
+    return 0;
+}
+
+5.
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Patient {
+protected:
+    string patientName;
+    int bedNumber;
+    string wardName;
+
+public:
+    void enterData() {
+        cout << "Enter Patient Name: ";
+        getline(cin, patientName);
+        cout << "Enter Bed Number: ";
+        cin >> bedNumber;
+        cin.ignore(); // to ignore the newline character
+        cout << "Enter Ward Name: ";
+        getline(cin, wardName);
+    }
+};
+
+class Doctor {
+protected:
+    string doctorName;
+    string doctorateDegree;
+
+public:
+    void enterDoctorData() {
+        cout << "Enter the Doctor Name: ";
+        getline(cin, doctorName);
+        cout << "Enter Doctorate Degree: ";
+        getline(cin, doctorateDegree);
+    }
+};
+
+class PatientDetails : public Patient, public Doctor {
+private:
+    float dues;
+
+public:
+    void enterDues() {
+        cout << "Enter Dues of Patient: ";
+        cin >> dues;
+    }
+
+    void displayData() {
+        cout << "Inserted Data is:\n";
+        cout << "Patient Name: " << patientName << endl;
+        cout << "Bed Number: " << bedNumber << endl;
+        cout << "Ward Name: " << wardName << endl;
+        cout << "Doctor Name: " << doctorName << endl;
+        cout << "Doctorate Degree: " << doctorateDegree << endl;
+        cout << "Total Dues of Patient: " << dues << endl;
+    }
+};
+
+int main() {
+    PatientDetails pd;
+    
+    cout << "Enter Data\n";
+    pd.enterData();
+    pd.enterDoctorData();
+    pd.enterDues();
+    pd.displayData();
+
+    return 0;
+}
